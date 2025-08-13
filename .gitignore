@@ -1,0 +1,71 @@
+# Build
+build/
+DerivedData/
+*.o
+*.dylib
+*.dSYM
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+Package.resolved
+*.xcodeproj
+
+# Xcode
+*.xcuserdata
+*.xcworkspace/xcuserdata/
+*.playground/playground.xcworkspace/xcuserdata/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Temporary
+*.tmp
+*.temp
+*.log
+tmp/
+temp/
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key
+*.p12
+Secrets.swift
+Config.swift
