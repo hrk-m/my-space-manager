@@ -78,7 +78,7 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
         let placement3 = PlacementConfig(
             targetSpace: 3,
             appPlacements: [
-                "iTerm": .full,
+                "iTerm": .left,
                 "Cursor": .right,
                 "Kiro": .right
             ],
