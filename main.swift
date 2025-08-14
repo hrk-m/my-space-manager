@@ -12,7 +12,7 @@ let arguments = CommandLine.arguments
 
 // ヘルプメッセージ
 func showHelp() {
-    print("🚀 Desktop App Manager")
+    print("🚀 Desktop App Manager (Optimized for Speed)")
     print("=" * 50)
     print("\nUsage:")
     print("  ./build/desktop-app-manager [option]")
@@ -23,40 +23,40 @@ func showHelp() {
     print("  --external-space3    iTerm + Cursor on External Monitor Space 3")
     print("  --external-space4    Google Chrome on External Monitor Space 4")
     print("  --help              Show this help message")
-    print("\nExamples:")
-    print("  ./build/desktop-app-manager --organize-all     # Complete organization")
-    print("  ./build/desktop-app-manager --external-space1  # Main display")
-    print("  ./build/desktop-app-manager --external-space2  # External monitor")
-    print("  ./build/desktop-app-manager --external-space3  # External monitor")
-    print("  ./build/desktop-app-manager --external-space4  # External monitor")
 }
 
 // 引数がない場合はデフォルトでSpace 2を実行
 if arguments.count < 2 {
     print("🚀 Desktop App Manager - External Monitor Space 2 (Default)")
     print("=" * 50)
+    print("⚡ Running in optimized speed mode")
     let manager = DesktopAppManagerExternalSpace2()
     manager.arrangeAppsOnExternalMonitorSpace2()
 } else {
     // コマンドライン引数に応じて処理を分岐
     switch arguments[1] {
     case "--organize-all":
+        print("⚡ Running in optimized speed mode")
         let manager = DesktopAppManagerSpaceAll()
         manager.arrangeAllApps()
         
     case "--external-space1":
+        print("⚡ Running in optimized speed mode")
         let manager = DesktopAppManagerSpace1()
         manager.arrangeAppsOnMainDisplaySpace1()
         
     case "--external-space2":
+        print("⚡ Running in optimized speed mode")
         let manager = DesktopAppManagerExternalSpace2()
         manager.arrangeAppsOnExternalMonitorSpace2()
         
     case "--external-space3":
+        print("⚡ Running in optimized speed mode")
         let manager = DesktopAppManagerSpace3()
         manager.arrangeAppsOnExternalMonitorSpace3()
         
     case "--external-space4":
+        print("⚡ Running in optimized speed mode")
         let manager = DesktopAppManagerSpace4()
         manager.arrangeAppsOnExternalMonitorSpace4()
         

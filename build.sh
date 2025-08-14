@@ -12,6 +12,7 @@ swiftc -o build/desktop-app-manager \
     -framework Cocoa \
     -framework ApplicationServices \
     -framework CoreGraphics \
+    SleepTimeConfig.swift \
     MonitorManager.swift \
     DesktopAppManagerBase.swift \
     DesktopAppManagerSpace1.swift \
@@ -35,6 +36,8 @@ if [ $? -eq 0 ]; then
     echo "  --external-space3    iTerm + Cursor on External Monitor Space 3"
     echo "  --external-space4    Google Chrome on External Monitor Space 4"
     echo "  --help              Show help message"
+    echo ""
+    echo "⚡ Optimized for maximum speed!"
     echo ""
     echo "⚠️  Note: The app requires Accessibility permission"
     echo "   Grant it in System Preferences > Security & Privacy > Privacy > Accessibility"

@@ -38,7 +38,7 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
         // 最終的にSpace 1に切り替え
         print("\n📍 Final step: Returning to Space 1")
         switchToSpace(1)
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.finalVerification))
         
         print("\n✅ All apps have been collected to Space 1!")
         print("💡 Tip: Press Control+1 to verify all apps are on Space 1")
@@ -119,9 +119,9 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
             
             // 外部モニターのスペースに移動
             moveMouseToExternalMonitor(externalMonitor)
-            Thread.sleep(forTimeInterval: 0.2)
+            Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.mouseToExternalMonitor))
             switchToSpace(spaceNumber)
-            Thread.sleep(forTimeInterval: 0.5)
+            Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.spaceSwitch))
             
             // アクティブなアプリを取得して Space 1 に移動
             moveActiveAppsToSpace1FromCurrentSpace(spaceNumber: spaceNumber, isExternal: true)
@@ -132,7 +132,7 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
         for spaceNumber in 2...4 {
             print("\n[Space \(spaceNumber)] Checking main display...")
             switchToSpace(spaceNumber)
-            Thread.sleep(forTimeInterval: 0.5)
+            Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.spaceSwitch))
             
             // アクティブなアプリを取得して Space 1 に移動
             moveActiveAppsToSpace1FromCurrentSpace(spaceNumber: spaceNumber, isExternal: false)
@@ -147,7 +147,7 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
         for spaceNumber in 2...4 {
             print("\n[Space \(spaceNumber)] Checking...")
             switchToSpace(spaceNumber)
-            Thread.sleep(forTimeInterval: 0.5)
+            Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.spaceSwitch))
             
             // アクティブなアプリを取得して Space 1 に移動
             moveActiveAppsToSpace1FromCurrentSpace(spaceNumber: spaceNumber, isExternal: false)
@@ -171,13 +171,13 @@ class DesktopAppManagerSpaceAll: DesktopAppManagerBase {
         // Space 1に移動
         print("  → Moving apps to Space 1...")
         switchToSpace(1)
-        Thread.sleep(forTimeInterval: 0.4)
+        Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.spaceCollection))
         
         // 各アプリをアクティブ化して Space 1 に固定
         for appName in activeApps {
             if let app = NSWorkspace.shared.runningApplications.first(where: { $0.localizedName == appName }) {
                 activateApp(app)
-                Thread.sleep(forTimeInterval: 0.2)
+                Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.betweenWindows))
                 
                 // ウィンドウを少しずつオフセットして配置
                 let windows = getAllAppWindows(app)

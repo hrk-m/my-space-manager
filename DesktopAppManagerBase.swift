@@ -95,7 +95,7 @@ class DesktopAppManagerBase {
         keyDown?.flags = .maskControl
         keyDown?.post(tap: .cghidEventTap)
         
-        Thread.sleep(forTimeInterval: 0.05)
+        Thread.sleep(forTimeInterval: SleepTimeConfig.keyEventInterval)
         
         let keyUp = CGEvent(keyboardEventSource: nil, virtualKey: keyCode, keyDown: false)
         keyUp?.flags = .maskControl
@@ -128,7 +128,7 @@ class DesktopAppManagerBase {
     internal func assignWindowToCurrentSpace(_ app: NSRunningApplication) {
         // アプリをアクティブにして現在のスペースに固定
         activateApp(app)
-        Thread.sleep(forTimeInterval: 0.2)
+        Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.windowPositioning))
         
         // Option + クリックでDockのコンテキストメニューを開く動作をシミュレート
         // （実際にはユーザーが手動で行う必要がある場合があります）
@@ -378,7 +378,7 @@ class DesktopAppManagerBase {
                 if let app = findOrLaunchApp(appName) {
                     runningApps[appName] = app
                     activateApp(app)
-                    Thread.sleep(forTimeInterval: 0.5)
+                    Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.appActivation))
                     print("  ✅ \(appName) activated")
                 } else {
                     print("  ❌ Could not setup \(appName)")
@@ -412,7 +412,7 @@ class DesktopAppManagerBase {
             if let app = findOrLaunchApp(appName) {
                 runningApps[appName] = app
                 activateApp(app)
-                Thread.sleep(forTimeInterval: 0.3)
+                Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.appActivation))
                 print("  • \(appName) ready for placement")
             } else {
                 print("  ⚠️ Could not find/launch \(appName)")
@@ -427,7 +427,7 @@ class DesktopAppManagerBase {
         // Switch to target space
         print("\n[Step 1] Switching to Space \(config.targetSpace)...")
         switchToSpace(config.targetSpace)
-        Thread.sleep(forTimeInterval: 1.0)
+        Thread.sleep(forTimeInterval: SleepTimeConfig.adjustedTime(SleepTimeConfig.spaceSwitch))
         
         // Get display based on type
         let display: NSScreen?
